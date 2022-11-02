@@ -88,6 +88,11 @@ func resourceOpsgenieIntegrationAction() *schema.Resource {
 													Type:     schema.TypeInt,
 													Optional: true,
 												},
+												"is_extra_properties_with_key": {
+													Type:     schema.TypeBool,
+													Optional: true,
+													Default:  false,
+												},
 											},
 										},
 									},
@@ -263,6 +268,11 @@ func resourceOpsgenieIntegrationAction() *schema.Resource {
 													Type:     schema.TypeInt,
 													Optional: true,
 												},
+												"is_extra_properties_with_key": {
+													Type:     schema.TypeBool,
+													Optional: true,
+													Default:  false,
+												},
 											},
 										},
 									},
@@ -345,6 +355,11 @@ func resourceOpsgenieIntegrationAction() *schema.Resource {
 												"order": {
 													Type:     schema.TypeInt,
 													Optional: true,
+												},
+												"is_extra_properties_with_key": {
+													Type:     schema.TypeBool,
+													Optional: true,
+													Default:  false,
 												},
 											},
 										},
@@ -429,6 +444,11 @@ func resourceOpsgenieIntegrationAction() *schema.Resource {
 													Type:     schema.TypeInt,
 													Optional: true,
 												},
+												"is_extra_properties_with_key": {
+													Type:     schema.TypeBool,
+													Optional: true,
+													Default:  false,
+												},
 											},
 										},
 									},
@@ -511,6 +531,11 @@ func resourceOpsgenieIntegrationAction() *schema.Resource {
 												"order": {
 													Type:     schema.TypeInt,
 													Optional: true,
+												},
+												"is_extra_properties_with_key": {
+													Type:     schema.TypeBool,
+													Optional: true,
+													Default:  false,
 												},
 											},
 										},
@@ -646,6 +671,7 @@ func flattenOpsgenieFilter(input *integration.Filter) []map[string]interface{} {
 		conditionMap["operation"] = r.Operation
 		conditionMap["field"] = r.Field
 		conditionMap["not"] = r.IsNot
+		conditionMap["is_extra_properties_with_key"] = r.isExtraPropertiesWithKey
 		conditions = append(conditions, conditionMap)
 	}
 	out["conditions"] = conditions
